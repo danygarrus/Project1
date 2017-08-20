@@ -65,7 +65,7 @@ var HomePage = (function () {
 }());
 HomePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-home',template:/*ion-inline-start:"/Users/mathildeguery/Documents/DANY/IONIC/MyCoach3/src/pages/home/home.html"*/'<ion-header>\n    <ion-navbar>\n        <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n        <ion-title>Home</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<!-- <ion-content padding>\n    <timer #timer [timeInSeconds]="60"></timer>\n</ion-content> -->\n\n<!-- <ion-content padding>\n\n    <h3>Ionic Menu Starter</h3>\n\n    <p>\n        If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.\n    </p>\n\n    <button ion-button secondary menuToggle>Toggle Menu</button>\n\n</ion-content> -->'/*ion-inline-end:"/Users/mathildeguery/Documents/DANY/IONIC/MyCoach3/src/pages/home/home.html"*/
+        selector: 'page-home',template:/*ion-inline-start:"/Users/mathildeguery/Documents/DANY/IONIC/Project1/src/pages/home/home.html"*/'<ion-header>\n    <ion-navbar>\n        <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n        <ion-title>Home</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<!-- <ion-content padding>\n    <timer #timer [timeInSeconds]="60"></timer>\n</ion-content> -->\n\n<!-- <ion-content padding>\n\n    <h3>Ionic Menu Starter</h3>\n\n    <p>\n        If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.\n    </p>\n\n    <button ion-button secondary menuToggle>Toggle Menu</button>\n\n</ion-content> -->'/*ion-inline-end:"/Users/mathildeguery/Documents/DANY/IONIC/Project1/src/pages/home/home.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]])
 ], HomePage);
@@ -120,7 +120,7 @@ var ListPage = ListPage_1 = (function () {
 }());
 ListPage = ListPage_1 = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-list',template:/*ion-inline-start:"/Users/mathildeguery/Documents/DANY/IONIC/MyCoach3/src/pages/list/list.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>List</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">\n      <ion-icon [name]="item.icon" item-left></ion-icon>\n      {{item.title}}\n      <div class="item-note" item-right>\n        {{item.note}}\n      </div>\n    </button>\n  </ion-list>\n  <div *ngIf="selectedItem" padding>\n    You navigated here from <b>{{selectedItem.title}}</b>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Users/mathildeguery/Documents/DANY/IONIC/MyCoach3/src/pages/list/list.html"*/
+        selector: 'page-list',template:/*ion-inline-start:"/Users/mathildeguery/Documents/DANY/IONIC/Project1/src/pages/list/list.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>List</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">\n      <ion-icon [name]="item.icon" item-left></ion-icon>\n      {{item.title}}\n      <div class="item-note" item-right>\n        {{item.note}}\n      </div>\n    </button>\n  </ion-list>\n  <div *ngIf="selectedItem" padding>\n    You navigated here from <b>{{selectedItem.title}}</b>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Users/mathildeguery/Documents/DANY/IONIC/Project1/src/pages/list/list.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]])
 ], ListPage);
@@ -167,11 +167,14 @@ var EntrainementPage = (function () {
     };
     EntrainementPage.prototype.stop = function () {
         this._timer.stop();
+        this._timer.reset();
         this._state.setStop();
     };
     EntrainementPage.prototype.pause = function () {
         this._timer.stop();
-        this._state.setStop();
+        this._state.setPause();
+        /*   this._state.setStop();
+         */ 
     };
     EntrainementPage.prototype.backward = function () {
         this._timer.reset();
@@ -182,11 +185,12 @@ var EntrainementPage = (function () {
 }());
 EntrainementPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-entrainement',template:/*ion-inline-start:"/Users/mathildeguery/Documents/DANY/IONIC/MyCoach3/src/pages/entrainement/entrainement.html"*/'<ion-header>\n    <ion-navbar>\n        <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n        <ion-title>Entrainement</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content>\n    <!--  <ion-list>\n        <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">\n      <ion-icon [name]="item.icon" item-left></ion-icon>\n      {{item.title}}\n      <div class="item-note" item-right>\n        {{item.note}}\n      </div>\n    </button>\n    </ion-list>\n    <div *ngIf="selectedItem" padding>\n        You navigated here from <b>{{selectedItem.title}}</b>\n    </div> -->\n\n    <ion-card>\n\n        <ion-item>\n            <ion-avatar item-start>\n                <img src="../../assets/icon/cardio.ico">\n            </ion-avatar>\n            <h1>Cardio</h1>\n        </ion-item>\n\n        <ion-card-content>\n            <p>Wait a minute. Wait a minute, Doc. Uhhh... 30min de course à pied.</p>\n        </ion-card-content>\n\n        <ion-row>\n            <ion-col>\n                <button ion-button icon-left clear small *ngIf="_state.play" (click)="play()">\n                    <ion-icon name="play"></ion-icon>\n                    <div>Play</div>                    \n                </button>\n                <button ion-button icon-left clear small *ngIf="_state.stop" (click)="pause()">\n                    <ion-icon name="pause"></ion-icon>\n                    <div>Pause</div>\n                    </button>\n            </ion-col>\n            <ion-col>\n                <button ion-button icon-left clear small *ngIf="(_state.stop || _state.pause )" (click)="stop()">\n                    <ion-icon name="square"></ion-icon>\n                    <div>Stop</div>\n                    </button>\n            </ion-col>\n            <ion-col *ngIf="(_state.stop)">\n                <!--                 <ion-item>\n -->\n                <h3>\n                    <span class="label label-primary">{{_timer.minutes}}</span> :\n                    <span class="label label-primary">{{_timer.secondes}}</span>\n                </h3>\n\n                <!--                 </ion-item>\n -->\n            </ion-col>\n        </ion-row>\n\n    </ion-card>\n\n    <!-- <div class="container">\n        <div class="text-center">\n            <h1>Le chronomètre</h1>\n            <hr>\n            <h1>\n                <span class="label label-primary">{{_timer.minutes}}</span> minutes\n                <span class="label label-primary">{{_timer.secondes}}</span> secondes\n            </h1>\n            <br>\n            <p>\n                <button class="btn btn-danger btn-lg" *ngIf="_state.backward" (click)="backward()">Effacer</button>\n                <button class="btn btn-danger btn-lg" *ngIf="_state.stop" (click)="stop()">Arrêter</button>\n                <button class="btn btn-primary btn-lg" *ngIf="_state.play" (click)="play()">{{_btnPlay}}</button>\n            </p>\n        </div>\n    </div> -->\n\n</ion-content>'/*ion-inline-end:"/Users/mathildeguery/Documents/DANY/IONIC/MyCoach3/src/pages/entrainement/entrainement.html"*/
+        selector: 'page-entrainement',template:/*ion-inline-start:"/Users/mathildeguery/Documents/DANY/IONIC/Project1/src/pages/entrainement/entrainement.html"*/'<ion-header>\n    <ion-navbar>\n        <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n        <ion-title>Entrainement</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content>\n\n    <ion-card>\n\n        <ion-item>\n            <ion-avatar item-start>\n                <img src="../../assets/icon/cardio.ico">\n            </ion-avatar>\n            <h1>Cardio</h1>\n        </ion-item>\n\n        <ion-card-content>\n            <p>Wait a minute. Wait a minute, Doc. Uhhh... 30min de course à pied.</p>\n        </ion-card-content>\n\n        <ion-row>\n            <ion-col>\n                <button ion-button icon-left clear small *ngIf="_state.play" (click)="play()">\n                    <ion-icon name="play"></ion-icon>\n                    <div>Play</div>                    \n                </button>\n                <button ion-button icon-left clear small *ngIf="_state.pause" (click)="pause()">    \n                    <ion-icon name="pause"></ion-icon>\n                    <div>Pause</div>\n                    </button>\n            </ion-col>\n            <ion-col>\n                <button ion-button icon-left clear small color="danger" *ngIf="_state.started" (click)="stop()">\n                    <ion-icon name="square"></ion-icon>\n                    <div>Stop</div>\n                    </button>\n            </ion-col>\n            <ion-col align-self-center *ngIf="_state.started">\n                <h3>\n                    {{_timer.minutes}} : {{_timer.secondes}}\n                </h3>\n            </ion-col>\n        </ion-row>\n\n    </ion-card>\n\n</ion-content>'/*ion-inline-end:"/Users/mathildeguery/Documents/DANY/IONIC/Project1/src/pages/entrainement/entrainement.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]) === "function" && _b || Object])
 ], EntrainementPage);
 
+var _a, _b;
 //# sourceMappingURL=entrainement.js.map
 
 /***/ }),
@@ -335,7 +339,7 @@ __decorate([
     __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Nav */])
 ], MyApp.prototype, "nav", void 0);
 MyApp = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/Users/mathildeguery/Documents/DANY/IONIC/MyCoach3/src/app/app.html"*/'<ion-menu [content]="content">\n  <ion-header>\n    <ion-toolbar>\n      <ion-title>Menu</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n    <ion-list>\n      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n        {{p.title}}\n      </button>\n    </ion-list>\n  </ion-content>\n\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"/Users/mathildeguery/Documents/DANY/IONIC/MyCoach3/src/app/app.html"*/
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/Users/mathildeguery/Documents/DANY/IONIC/Project1/src/app/app.html"*/'<ion-menu [content]="content">\n  <ion-header>\n    <ion-toolbar>\n      <ion-title>Menu</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n    <ion-list>\n      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n        {{p.title}}\n      </button>\n    </ion-list>\n  </ion-content>\n\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"/Users/mathildeguery/Documents/DANY/IONIC/Project1/src/app/app.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
 ], MyApp);
@@ -395,6 +399,7 @@ var State = (function () {
         this._play = true;
         this._stop = false;
         this._pause = false;
+        this._started = false;
         this._backward = false;
     }
     Object.defineProperty(State.prototype, "stop", {
@@ -417,15 +422,22 @@ var State = (function () {
         enumerable: true,
         configurable: true
     });
+    Object.defineProperty(State.prototype, "started", {
+        get: function () { return this._started; },
+        enumerable: true,
+        configurable: true
+    });
     State.prototype.setPlay = function () {
         this._stop = true;
         this._pause = true;
         this._play = this._backward = false;
+        this._started = true;
     };
     State.prototype.setStop = function () {
         this._stop = false;
         this._pause = false;
         this._play = this._backward = true;
+        this._started = false;
     };
     State.prototype.setPause = function () {
         this._pause = false;

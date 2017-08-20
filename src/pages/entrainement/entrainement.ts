@@ -23,13 +23,15 @@ export class EntrainementPage {
     this._btnPlay = 'Continuer';
 }
 stop() {
-    this._timer.stop();
+  this._timer.stop();  
+    this._timer.reset();
     this._state.setStop();
 }
 pause() {
   this._timer.stop();
-  this._state.setStop();
-}
+  this._state.setPause();  
+/*   this._state.setStop();
+ */}
 backward() {
     this._timer.reset();
     this._state.setBackward();

@@ -8,18 +8,6 @@
 </ion-header>
 
 <ion-content>
-    <!--  <ion-list>
-        <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-      <ion-icon [name]="item.icon" item-left></ion-icon>
-      {{item.title}}
-      <div class="item-note" item-right>
-        {{item.note}}
-      </div>
-    </button>
-    </ion-list>
-    <div *ngIf="selectedItem" padding>
-        You navigated here from <b>{{selectedItem.title}}</b>
-    </div> -->
 
     <ion-card>
 
@@ -40,47 +28,24 @@
                     <ion-icon name="play"></ion-icon>
                     <div>Play</div>                    
                 </button>
-                <button ion-button icon-left clear small *ngIf="_state.stop" (click)="pause()">
+                <button ion-button icon-left clear small *ngIf="_state.pause" (click)="pause()">    
                     <ion-icon name="pause"></ion-icon>
                     <div>Pause</div>
                     </button>
             </ion-col>
             <ion-col>
-                <button ion-button icon-left clear small *ngIf="(_state.stop || _state.pause )" (click)="stop()">
+                <button ion-button icon-left clear small color="danger" *ngIf="_state.started" (click)="stop()">
                     <ion-icon name="square"></ion-icon>
                     <div>Stop</div>
                     </button>
             </ion-col>
-            <ion-col *ngIf="(_state.stop)">
-                <!--                 <ion-item>
- -->
+            <ion-col align-self-center *ngIf="_state.started">
                 <h3>
-                    <span class="label label-primary">{{_timer.minutes}}</span> :
-                    <span class="label label-primary">{{_timer.secondes}}</span>
+                    {{_timer.minutes}} : {{_timer.secondes}}
                 </h3>
-
-                <!--                 </ion-item>
- -->
             </ion-col>
         </ion-row>
 
     </ion-card>
-
-    <!-- <div class="container">
-        <div class="text-center">
-            <h1>Le chronomètre</h1>
-            <hr>
-            <h1>
-                <span class="label label-primary">{{_timer.minutes}}</span> minutes
-                <span class="label label-primary">{{_timer.secondes}}</span> secondes
-            </h1>
-            <br>
-            <p>
-                <button class="btn btn-danger btn-lg" *ngIf="_state.backward" (click)="backward()">Effacer</button>
-                <button class="btn btn-danger btn-lg" *ngIf="_state.stop" (click)="stop()">Arrêter</button>
-                <button class="btn btn-primary btn-lg" *ngIf="_state.play" (click)="play()">{{_btnPlay}}</button>
-            </p>
-        </div>
-    </div> -->
 
 </ion-content>
