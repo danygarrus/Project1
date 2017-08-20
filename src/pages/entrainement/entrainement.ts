@@ -30,20 +30,11 @@ stop() {
 pause() {
   this._timer.stop();
   this._state.setPause();  
-/*   this._state.setStop();
- */}
+}
+
 backward() {
     this._timer.reset();
     this._state.setBackward();
     this._btnPlay = 'Démarrer';
 }
-
-  
-
- /*  itemTapped(event, item) {
-    // That's right, we're pushing to ourselves!
-    this.navCtrl.push(EntrainementPage, {
-      item: item
-    });
-  } */
 }

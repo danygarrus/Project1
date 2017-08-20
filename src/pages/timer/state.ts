@@ -4,7 +4,7 @@ export class State {
 	private _stop: boolean = false;
 	private _pause: boolean = false;
 	private _started: boolean = false;	
-	
+	private _done: boolean = false;		
 	private _backward: boolean = false;
 
 	get stop(): boolean { return this._stop; }
@@ -12,14 +12,14 @@ export class State {
 	get play(): boolean { return this._play; }
 	get pause(): boolean { return this._pause; }
 	get started(): boolean { return this._started; }
-	
+	get done(): boolean { return this._done; }	
 	
 
 	setPlay() {
 		this._stop = true;
 		this._pause = true;		
 		this._play = this._backward = false;
-		this._started = true;		
+		this._started = this._done = true;		
 	}
 	setStop() {
 		this._stop = false;

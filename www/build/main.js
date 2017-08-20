@@ -173,8 +173,6 @@ var EntrainementPage = (function () {
     EntrainementPage.prototype.pause = function () {
         this._timer.stop();
         this._state.setPause();
-        /*   this._state.setStop();
-         */ 
     };
     EntrainementPage.prototype.backward = function () {
         this._timer.reset();
@@ -185,12 +183,11 @@ var EntrainementPage = (function () {
 }());
 EntrainementPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-entrainement',template:/*ion-inline-start:"/Users/mathildeguery/Documents/DANY/IONIC/Project1/src/pages/entrainement/entrainement.html"*/'<ion-header>\n    <ion-navbar>\n        <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n        <ion-title>Entrainement</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content>\n\n    <ion-card>\n\n        <ion-item>\n            <ion-avatar item-start>\n                <img src="../../assets/icon/cardio.ico">\n            </ion-avatar>\n            <h1>Cardio</h1>\n        </ion-item>\n\n        <ion-card-content>\n            <p>Wait a minute. Wait a minute, Doc. Uhhh... 30min de course à pied.</p>\n        </ion-card-content>\n\n        <ion-row>\n            <ion-col>\n                <button ion-button icon-left clear small *ngIf="_state.play" (click)="play()">\n                    <ion-icon name="play"></ion-icon>\n                    <div>Play</div>                    \n                </button>\n                <button ion-button icon-left clear small *ngIf="_state.pause" (click)="pause()">    \n                    <ion-icon name="pause"></ion-icon>\n                    <div>Pause</div>\n                    </button>\n            </ion-col>\n            <ion-col>\n                <button ion-button icon-left clear small color="danger" *ngIf="_state.started" (click)="stop()">\n                    <ion-icon name="square"></ion-icon>\n                    <div>Stop</div>\n                    </button>\n            </ion-col>\n            <ion-col align-self-center *ngIf="_state.started">\n                <h3>\n                    {{_timer.minutes}} : {{_timer.secondes}}\n                </h3>\n            </ion-col>\n        </ion-row>\n\n    </ion-card>\n\n</ion-content>'/*ion-inline-end:"/Users/mathildeguery/Documents/DANY/IONIC/Project1/src/pages/entrainement/entrainement.html"*/
+        selector: 'page-entrainement',template:/*ion-inline-start:"/Users/mathildeguery/Documents/DANY/IONIC/Project1/src/pages/entrainement/entrainement.html"*/'<ion-header>\n    <ion-navbar>\n        <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n        <ion-title>Entrainement</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content>\n\n    <ion-card>\n\n        <ion-item>\n            <ion-avatar item-start>\n                <img src="../../assets/icon/cardio.ico">\n            </ion-avatar>\n            <h1>Cardio</h1>\n        </ion-item>\n\n        <ion-card-content>\n            <p>Wait a minute. Wait a minute, Doc. Uhhh... 30min de course à pied.</p>\n        </ion-card-content>\n\n        <ion-grid no-padding fixed>\n\n            <ion-row>\n                <ion-col align-self-center>\n                    <button ion-button icon-left clear small *ngIf="_state.play" (click)="play()">\n                    <ion-icon name="play"></ion-icon>\n<!--                     <div>Play </div>                    \n -->                </button>\n                    <button ion-button icon-left clear small *ngIf="_state.pause" (click)="pause()">    \n                    <ion-icon name="pause"></ion-icon>\n<!--                     <div>Pause</div>\n -->                    </button>\n                </ion-col>\n                <ion-col align-self-center>\n                    <button ion-button icon-left clear small color="danger" *ngIf="_state.started" (click)="stop()">\n                    <ion-icon name="square"></ion-icon>\n<!--                     <div>Stop </div>\n -->                    </button>\n                </ion-col>\n                <ion-col align-self-center>\n                    <h3 ion-text color="primary" *ngIf="_state.started">{{_timer.minutes}} : {{_timer.secondes}}</h3>\n                </ion-col>\n                <ion-col align-self-center>\n                    <button ion-button icon-left large clear color="primary" *ngIf="_state.done">                                \n                    <ion-icon name="checkmark" ></ion-icon>\n                    </button>\n                </ion-col>\n            </ion-row>\n        </ion-grid>\n\n    </ion-card>\n\n</ion-content>'/*ion-inline-end:"/Users/mathildeguery/Documents/DANY/IONIC/Project1/src/pages/entrainement/entrainement.html"*/
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]])
 ], EntrainementPage);
 
-var _a, _b;
 //# sourceMappingURL=entrainement.js.map
 
 /***/ }),
@@ -400,6 +397,7 @@ var State = (function () {
         this._stop = false;
         this._pause = false;
         this._started = false;
+        this._done = false;
         this._backward = false;
     }
     Object.defineProperty(State.prototype, "stop", {
@@ -427,11 +425,16 @@ var State = (function () {
         enumerable: true,
         configurable: true
     });
+    Object.defineProperty(State.prototype, "done", {
+        get: function () { return this._done; },
+        enumerable: true,
+        configurable: true
+    });
     State.prototype.setPlay = function () {
         this._stop = true;
         this._pause = true;
         this._play = this._backward = false;
-        this._started = true;
+        this._started = this._done = true;
     };
     State.prototype.setStop = function () {
         this._stop = false;
